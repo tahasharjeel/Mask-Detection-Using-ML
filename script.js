@@ -31,8 +31,8 @@ function modelLoaded() {
 }
 
 function setup() {
-  createCanvas(width, height);
   video = createCapture(VIDEO);
+  createCanvas(width, height);
   video.hide();
   faceDetection();
   classifyVideo();
@@ -85,10 +85,10 @@ function gotFace(error, results) {
 
 function draw() {
   faceDetection();
-  background(51);
+  background('#7effdb');
   textFont('Courgette');
   if (start) {
-    image(video, 0, 0);
+    image(video, (width - video.width) / 2, 0);
     fill(color);
     noStroke();
     textSize(32);
@@ -99,7 +99,7 @@ function draw() {
     strokeWeight(5);
     rect(box.topLeftX, box.topLeftY, box.width, box.height);
   } else {
-    fill("white");
+    fill("black");
     noStroke();
     textAlign(CENTER, CENTER);
     textSize(32);
